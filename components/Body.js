@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Button from 'react-native-button';
 
 import Result from './Result';
+import Control from './Control';
 
 const Body = () => {
-    const [itemList, setItemList]=useState([])
+    const [itemList, setItemList]=useState([0,0,0])
     const [isOpen, setIsOpen]=useState(false);
 
     const handlePlay=()=>{
@@ -23,21 +23,15 @@ const Body = () => {
 
     return (
         <View style={styles.bodyWrapper}>
-            <Result res={itemList}/>
-            <View style={styles.controlArea}>
-                <Button
-                    style={styles.buttonPlay}
-                    onPress={handlePlay}
-                >
-                    PLAY
-                </Button>
-                <Button
-                    style={isOpen ? styles.buttonOpen : styles.buttonClose}
-                    onPress={handleOpen}
-                >
-                    {isOpen ? 'OPEN' : 'CLOSE'}
-                </Button>
-            </View>
+            <Result 
+                res={itemList}
+                isOpen={isOpen}
+            />
+            <Control 
+                isOpen={isOpen}
+                handlePlay={handlePlay}
+                handleOpen={handleOpen}
+            />
         </View>
     );
 };
@@ -45,35 +39,6 @@ const Body = () => {
 const styles = StyleSheet.create({
     bodyWrapper: {
 
-    },
-    controlArea: {
-        backgroundColor: '#abb8cf',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-    },
-    buttonPlay: {
-        color: 'white',
-        backgroundColor: 'blue',
-        margin: 10,
-        padding: 12,
-        width: 150,
-        borderRadius: 20,
-    },
-    buttonOpen: {
-        color: 'white',
-        backgroundColor: 'green',
-        margin: 10,
-        padding: 12,
-        width: 150,
-        borderRadius: 20,
-    },
-    buttonClose: {
-        color: 'white',
-        backgroundColor: 'red',
-        margin: 10,
-        padding: 12,
-        width: 150,
-        borderRadius: 20,
     },
 });
 
