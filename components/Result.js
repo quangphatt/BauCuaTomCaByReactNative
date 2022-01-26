@@ -1,24 +1,39 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import {img0, img1, img2, img3, img4, img5} from '../assets/images'
 
-const kk=['dsf','fdgfger','d','fdh','ttrr','f']
+const images=[img0, img1, img2, img3, img4, img5];
 
 const Result = (props) => {
     return (
         <View style={styles.resultWrapper}>
-            {props.isOpen ? props.res.map((item,idx)=>(
-                <View 
-                    key={idx}
+            {props.isOpen ? (
+                <View
                     style={styles.itemWrapper}
                 >
-                    <Image 
-                        style={styles.itemImage}
-                        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-                    />
-                    <Text style={styles.itemText}>{kk[item]}</Text>
+                    <View
+                        style={styles.itemFirstLine}
+                    >
+                        <Image 
+                            style={styles.itemImage}
+                            source={images[props.res[0]]}
+                        />
+                        <Image 
+                            style={styles.itemImage}
+                            source={images[props.res[1]]}
+                        />
+                    </View>
+                    <View
+                        style={styles.itemSecondLine}
+                    >
+                        <Image 
+                            style={styles.itemImage}
+                            source={images[props.res[2]]}
+                        />
+                    </View>
                 </View>
                 
-            )):<Text></Text>}
+            ):<Text></Text>}
         </View>
     );
 };
@@ -28,14 +43,20 @@ const styles = StyleSheet.create({
         height: 400,
     },
     itemWrapper: {
-        margin: 10,
-        marginLeft: 50,
+        
+    },
+    itemFirstLine: {
+        marginTop: 50,
+        marginBottom: 50,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
+    },
+    itemSecondLine: {
+        alignItems: 'center',
     },
     itemImage: {
-        height: 100,
-        width: 100,
+        height: 120,
+        width: 120,
         borderRadius: 20,
     },
     itemText: {

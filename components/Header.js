@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     slogan:{
         color: '#000',
         fontSize: 15,
+        margin: 10,
     },
 });
 

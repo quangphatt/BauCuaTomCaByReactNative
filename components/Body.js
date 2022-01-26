@@ -9,6 +9,7 @@ const Body = () => {
     const [isOpen, setIsOpen]=useState(false);
 
     const handlePlay=()=>{
+        setIsOpen(false);
         let items=[];
         for(let i=0;i<3;i++){
             let item=Math.floor(Math.random() * 6);
