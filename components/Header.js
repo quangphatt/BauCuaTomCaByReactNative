@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 const Header = () => {
     return (
         <View style={styles.headerWrapper}>
-            <Text style={styles.titleText}>Header</Text>
-            <Text style={styles.slogan}>Slogan</Text>
+            <Text style={styles.titleText}>Bầu Cua Tôm Cá</Text>
+            <Text style={styles.slogan}>"Thắng bại tại hên xui"</Text>
         </View>
     );
 };
